@@ -1,0 +1,72 @@
+/* Styling yang lebih spesifik untuk ALIANSI (Warna ORANGE) */
+.company-logo-link .text-lg {
+    /* Mengubah dari 1.5em menjadi 1.2em atau 1.1em agar lebih kecil */
+    font-size: 0.9em; 
+    font-weight: bold;
+    display: block;
+    color: #ffa600; /* Orange */
+}
+
+/* Styling untuk Prima Energi (Warna PUTIH) */
+.company-logo-link .text-sm {
+    /* Mengubah dari 1em menjadi 0.8em atau 0.9em agar lebih kecil dan kontras */
+    font-size: 0.9em; 
+    font-weight: normal; 
+    display: block;
+    color: #FFFFFF; /* Putih */
+}
+
+/* --- Lainnya --- */
+
+/* Atur container teks (jika Anda menggunakan solusi wrapping sebelumnya) */
+.logo-img {
+    height: 30px !important; /* Ukuran kecil */
+    width: auto !important; 
+    object-fit: contain !important;
+}
+
+/* Mengatur container link agar teks dan gambar sejajar */
+.company-logo-link {
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important; /* Penting untuk merapatkan baris teks */
+    text-decoration: none !important;
+    /* Menetapkan font-size dasar untuk mengatasi H1 yang besar */
+    font-size: 1rem !important; 
+}
+
+/* Mengatasi masalah margin pada H1 */
+.logo h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Styling untuk Swiper highlightSwiper agar text tidak numpuk */
+.highlightSwiper .swiper-slide {
+    height: auto; /* Mengizinkan tinggi otomatis agar konten pas */
+    min-height: 300px; /* Set min-height untuk konsistensi */
+}
+
+.highlightSwiper .card {
+    height: 100%; /* Pastikan card mengisi tinggi slide */
+}
+
+.highlightSwiper .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word; /* Memastikan kata panjang wrap */
+    overflow-wrap: break-word;
+    hyphens: auto; /* Jika diperlukan untuk hyphenation */
+}
+
+.highlightSwiper .card-title {
+    font-size: 1.1rem; /* Sesuaikan ukuran font jika perlu */
+    margin-bottom: 0.5rem;
+}
+
+.highlightSwiper .card-text {
+    font-size: 0.9rem; /* Sesuaikan ukuran font untuk mencegah overlap */
+    line-height: 1.4; /* Tingkatkan line-height untuk readability */
+}
