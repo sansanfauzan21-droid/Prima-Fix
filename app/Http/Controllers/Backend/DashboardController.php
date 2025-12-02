@@ -23,6 +23,8 @@ class DashboardController extends Controller
             'home_contents' => HomeContent::count(),
             'sbu_images' => SbuImage::count(),
             'contact_forms' => ContactForm::count(),
+            'contact_forms_unread' => ContactForm::whereNull('category')->where('is_read', false)->count(),
+            'complaints_unread' => ContactForm::whereNotNull('category')->where('is_read', false)->count(),
             'highlights' => Highlight::count(),
             'reviews' => Review::count(),
             'regulations' => Regulation::count(),

@@ -40,6 +40,8 @@ class ContactUsController extends Controller
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message,
+            'category' => $request->category,
+            'priority' => $request->priority,
         ];
 
         try {
@@ -49,19 +51,23 @@ class ContactUsController extends Controller
             // Simpan ke database
             \App\Models\Backend\Utilities\ContactForm::create($data);
 
-            // Kirim email ke admin
-            Mail::to('aldiawaludin226@gmail.com')->send(new ContactFormMail($data));
+            // Coba kirim email, tapi jangan biarkan error menghentikan proses
+            try {
+                Mail::to('fauzanarif211104@gmail.com')->send(new ContactFormMail($data));
+                \Log::info('Contact form email sent successfully');
+            } catch (\Exception $emailException) {
+                \Log::warning('Contact form email failed, but data saved: ' . $emailException->getMessage());
+                // Email gagal, tapi data tetap tersimpan
+            }
 
-            \Log::info('Contact form email sent successfully');
-
-            return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
+            return redirect()->back()->with('success', 'Pesan berhasil dikirim! Admin akan segera memprosesnya.');
         } catch (\Exception $e) {
-            \Log::error('Contact form email failed: ' . $e->getMessage(), [
+            \Log::error('Contact form submission failed: ' . $e->getMessage(), [
                 'data' => $data,
                 'exception' => $e->getTraceAsString()
             ]);
 
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat mengirim pesan: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan pesan. Silakan coba lagi.');
         }
     }
 }

@@ -94,7 +94,7 @@
 
         100% {
             transform: rotate(360deg);
-                    }
+            }
     }
 
     .progress-circle {
@@ -133,6 +133,87 @@
             transform: scale(1);
             opacity: 1;
         }
+    }
+
+    /* Quick Actions Enhanced Styles */
+    .hover-scale:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    }
+
+    .action-card:hover .icon-wrapper i {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+    .icon-wrapper {
+        transition: transform 0.3s ease;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .animate-bounce {
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .card.shadow-lg {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    .action-card {
+        transition: all 0.3s ease;
+    }
+
+    .action-card:hover {
+        text-decoration: none !important;
+    }
+
+    /* Notification Badge Styles */
+    .notification-badge {
+        border-radius: 50%;
+        min-width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        border: 2px solid white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        animation: notification-pulse 2s infinite;
+    }
+
+    @keyframes notification-pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+    }
+
+    /* Enhanced notification positioning */
+    .card.position-relative .notification-badge {
+        z-index: 10;
     }
 </style>
 
@@ -229,30 +310,7 @@
         </a>
     </div>
 
-    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4">
-        <a href="{{ route('home.highlight.index') }}" class="text-decoration-none">
-            <div class="card hover-lift" style="cursor: pointer; transition: transform 0.3s ease;">
-                <div class="card-body">
-                    <div class="d-flex align-items-start justify-content-between">
-                        <div class="content-left">
-                            <span class="text-heading">Highlights</span>
-                            <div class="d-flex align-items-center my-1">
-                                <h4 class="mb-0 me-2">{{ $stats['highlights'] }}</h4>
-                            </div>
-                            <small class="text-success fw-semibold">
-                                <i class="bx bx-up-arrow-alt"></i> Items
-                            </small>
-                        </div>
-                        <div class="avatar">
-                            <span class="avatar-initial rounded bg-label-warning">
-                                <i class="bx bx-star bx-sm"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
+
 
     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4">
         <a href="{{ route('review.index') }}" class="text-decoration-none">
@@ -308,46 +366,153 @@
 <!-- Quick Actions & System Overview -->
 <div class="row mb-4">
     <div class="col-lg-8 mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0"><i class="bx bx-rocket"></i> Quick Actions</h5>
+        <div class="card shadow-lg border-0" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; overflow: hidden;">
+            <div class="card-header bg-gradient-primary text-white position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 15px 15px 0 0;">
+                <div class="position-absolute top-0 end-0 opacity-25">
+                    <i class="fas fa-rocket fa-2x animate-pulse"></i>
+                </div>
+                <h5 class="card-title mb-0 fw-bold">
+                    <i class="bx bx-rocket-launch me-2"></i> Quick Actions
+                    <small class="text-white-50 fw-light">Access frequently used features</small>
+                </h5>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <a href="{{ route('home.hero.index') }}" class="btn btn-primary btn-block mb-2">
-                            <i class="bx bx-image"></i> Manage Hero
-                        </a>
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <!-- Content Management Section -->
+                    <div class="col-12 mb-3">
+                        <h6 class="text-muted mb-3">
+                            <i class="bx bx-edit-alt me-1"></i> Content Management
+                        </h6>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <a href="{{ route('home.hero.index') }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-image fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">Manage Hero</h6>
+                                            <small class="opacity-75">Hero section content</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <a href="{{ route('home.about.index') }}" class="btn btn-success btn-block mb-2">
-                            <i class="bx bx-info-circle"></i> Edit About
-                        </a>
+
+                    <!-- Media & Assets Section -->
+                    <div class="col-12 mb-3">
+                        <h6 class="text-muted mb-3">
+                            <i class="bx bx-image-alt me-1"></i> Media & Assets
+                        </h6>
+                        <div class="row g-2">
+
+                            <div class="col-md-6">
+                                <a href="{{ route('home.sbu-image.index') }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale" style="background: linear-gradient(135deg, #6c757d 0%, #495057 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-image-alt fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">SBU Images</h6>
+                                            <small class="opacity-75">Business unit images</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <a href="{{ route('home.highlight.index') }}" class="btn btn-info btn-block mb-2">
-                            <i class="bx bx-star"></i> Manage Highlights
-                        </a>
+
+                    <!-- Business Operations Section -->
+                    <div class="col-12 mb-3">
+                        <h6 class="text-muted mb-3">
+                            <i class="bx bx-building me-1"></i> Business Operations
+                        </h6>
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <a href="{{ route('home-content.index') }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale" style="background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-edit fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">Edit Content</h6>
+                                            <small class="opacity-75">Home page content</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{ route('company.index') }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale" style="background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-building fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">Company Info</h6>
+                                            <small class="opacity-75">Company details</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{ route('regulations.index') }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale" style="background: linear-gradient(135deg, #17a2b8 0%, #03dac6 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-file fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">Regulations</h6>
+                                            <small class="opacity-75">Legal documents</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <a href="{{ route('home-content.index') }}" class="btn btn-warning btn-block mb-2">
-                            <i class="bx bx-edit"></i> Edit Content
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{ route('company.index') }}" class="btn btn-danger btn-block mb-2">
-                            <i class="bx bx-building"></i> Company Info
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{ route('home.sbu-image.index') }}" class="btn btn-secondary btn-block mb-2">
-                            <i class="bx bx-image-alt"></i> SBU Images
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{ route('contact-form.index') }}" class="btn btn-dark btn-block mb-2">
-                            <i class="bx bx-message-alt-detail"></i> Contact Forms
-                        </a>
+
+                    <!-- Customer Service Section -->
+                    <div class="col-12">
+                        <h6 class="text-muted mb-3">
+                            <i class="bx bx-support me-1"></i> Customer Service
+                        </h6>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <a href="{{ route('contact-form.index') }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale" style="background: linear-gradient(135deg, #343a40 0%, #495057 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-message-alt-detail fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">Contact Forms</h6>
+                                            <small class="opacity-75">All contact messages</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ route('contact-form.index', ['type' => 'complaints']) }}" class="action-card text-decoration-none">
+                                    <div class="card h-100 border-0 shadow-sm hover-scale position-relative" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); color: white; border-radius: 12px; transition: all 0.3s ease;">
+                                        <div class="position-absolute top-0 end-0 m-2">
+                                            <span class="badge bg-light text-danger fw-bold animate-pulse">Priority</span>
+                                        </div>
+                                        @if($stats['complaints_unread'] > 0)
+                                            <div class="position-absolute top-0 start-0 m-2">
+                                                <span class="badge bg-warning text-dark notification-badge">{{ $stats['complaints_unread'] }}</span>
+                                            </div>
+                                        @endif
+                                        <div class="card-body text-center p-3">
+                                            <div class="icon-wrapper mb-2">
+                                                <i class="bx bx-message-alt-detail fa-2x"></i>
+                                            </div>
+                                            <h6 class="card-title mb-1 fw-bold">Complaints & Issues</h6>
+                                            <small class="opacity-75">Customer complaints</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

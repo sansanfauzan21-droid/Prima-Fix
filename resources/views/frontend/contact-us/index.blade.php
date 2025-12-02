@@ -39,8 +39,8 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center" data-aos="fade-up">
-                    <h2 style="color: #333; font-weight: 700; font-size: 2.5rem; margin-bottom: 20px;">Mari Terhubung</h2>
-                    <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Ada pertanyaan atau butuh bantuan? Kirim pesan kepada kami dan kami akan segera merespons.</p>
+                    <h2 style="color: #333; font-weight: 700; font-size: 2.5rem; margin-bottom: 20px;">Mari Terhubung Dengan Kami</h2>
+                    <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Ada pertanyaan, butuh bantuan atau kendala? Beritahu kepada kami dan kami akan segera merespons.</p>
                 </div>
             </div>
 
@@ -80,9 +80,9 @@
                             </div>
                             <h5 style="color: #333; font-weight: 700; margin-bottom: 15px; font-size: 1.1em;">Email</h5>
                             <a href="mailto:{{ $company && $company->email ? $company->email : 'office.aliansi@gmail.com' }}" style="color: #ffc107; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: color 0.3s; cursor: pointer;" onmouseover="this.style.color='#fd7e14'">{{ $company && $company->email ? $company->email : 'office.aliansi@gmail.com' }}</a>
-                            <p style="color: #666; margin-top: 10px; font-size: 0.9em;">Kirim email untuk pertanyaan lebih detail</p>
+                                <p style="color: #666; margin-top: 10px; font-size: 0.9em;">Kirim email untuk pertanyaan lebih detail</p>
+                            </div>
                         </div>
-                    </div>
                 </div>
 
                 <!-- Contact Form -->
@@ -97,13 +97,13 @@
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <div class="floating-label-input">
-                                        <input type="text" name="name" class="form-control modern-input" id="name" required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s;">
+                                        <input type="text" name="name" class="form-control modern-input" id="name" placeholder=" " required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s;">
                                         <label for="name" class="floating-label" style="position: absolute; top: 10px; left: 0; color: #6c757d; transition: all 0.3s; pointer-events: none;">Nama Lengkap</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <div class="floating-label-input">
-                                        <input type="email" class="form-control modern-input" name="email" id="email" required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s;">
+                                        <input type="email" class="form-control modern-input" name="email" id="email" placeholder=" " required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s;">
                                         <label for="email" class="floating-label" style="position: absolute; top: 10px; left: 0; color: #6c757d; transition: all 0.3s; pointer-events: none;">Email</label>
                                     </div>
                                 </div>
@@ -111,14 +111,14 @@
 
                             <div class="form-group" style="margin-top: 30px;">
                                 <div class="floating-label-input">
-                                    <input type="text" class="form-control modern-input" name="subject" id="subject" required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s;">
+                                    <input type="text" class="form-control modern-input" name="subject" id="subject" placeholder=" " required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s;">
                                     <label for="subject" class="floating-label" style="position: absolute; top: 10px; left: 0; color: #6c757d; transition: all 0.3s; pointer-events: none;">Subjek</label>
                                 </div>
                             </div>
 
                             <div class="form-group" style="margin-top: 30px;">
                                 <div class="floating-label-input">
-                                    <textarea class="form-control modern-input" name="message" id="message" rows="5" required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s; resize: vertical;"></textarea>
+                                    <textarea class="form-control modern-input" name="message" id="message" placeholder=" " rows="5" required style="border: none; border-bottom: 2px solid #e9ecef; border-radius: 0; padding: 10px 0; font-size: 1rem; background: transparent; transition: border-color 0.3s; resize: vertical;"></textarea>
                                     <label for="message" class="floating-label" style="position: absolute; top: 10px; left: 0; color: #6c757d; transition: all 0.3s; pointer-events: none;">Pesan</label>
                                 </div>
                             </div>
@@ -194,6 +194,7 @@
         font-size: 0.8rem;
         color: #667eea;
         font-weight: 600;
+        opacity: 0;
     }
 
     .floating-label-input textarea:focus + .floating-label,
@@ -202,6 +203,7 @@
         font-size: 0.8rem;
         color: #667eea;
         font-weight: 600;
+        opacity: 0;
     }
 
     .modern-btn:hover {

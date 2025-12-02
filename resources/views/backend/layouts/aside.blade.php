@@ -41,16 +41,6 @@
                         <div data-i18n="Hero">Hero</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('company-profile/home/about*') ? 'active' : '' }}">
-                    <a href="{{ route('home.about.index') }}" class="menu-link">
-                        <div data-i18n="About">About</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ Request::is('company-profile/home/highlight*') ? 'active' : '' }}">
-                    <a href="{{ route('home.highlight.index') }}" class="menu-link">
-                        <div data-i18n="Highlight">Highlight</div>
-                    </a>
-                </li>
                 <li class="menu-item {{ Request::is('company-profile/home/content*') ? 'active' : '' }}">
                     <a href="{{ route('home-content.index') }}" class="menu-link">
                         <div data-i18n="Content">Content</div>
@@ -74,7 +64,7 @@
                 <div data-i18n="Company">Company</div>
             </a>
         </li>
-        <li class="menu-item {{ Request::is('utilities/regulations*') ? 'active' : '' }}">
+        <li class="menu-item {{ Request::is('utilities/regulations*') || Request::is('regulations*') ? 'active' : '' }}">
             <a href="{{ route('regulations.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Regulations">Regulations</div>

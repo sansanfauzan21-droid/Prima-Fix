@@ -156,12 +156,12 @@ rel="stylesheet">
 <script>
         AOS.init({
             // Opsional: atur durasi (dalam ms), dari 0 sampai 3000
-            duration: 1000, 
+            duration: 1000,
             // Opsional: atur seberapa banyak elemen harus masuk ke viewport sebelum animasi dimulai (dari 0 hingga 1)
             once: true, // Animasi hanya terjadi sekali (setelah load)
         });
     </script>
-
+@stack('scripts')
 </body>
 
 </html>

@@ -15,6 +15,8 @@ class ContactForm extends Model
         'subject',
         'message',
         'is_read',
+        'category',
+        'priority',
     ];
 
     protected $casts = [

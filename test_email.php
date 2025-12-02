@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 try {
     Mail::raw('Test email from Laravel application', function ($message) {
-        $message->to('sansan.fauzan21@gmail.com')
+        $message->to('farisya24002@mail.unpad.ac.id')
                 ->subject('Test Email from Laravel');
     });
 

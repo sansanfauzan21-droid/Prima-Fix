@@ -70,19 +70,8 @@ Route::prefix('company-profile')->group(function () {
             Route::post('/', 'heroUpdate')->name('update');
         });
         /* About */
-        Route::prefix('about')->name('about.')->group(function () {
-            Route::get('/', 'aboutIndex')->name('index');
-            Route::post('/', 'aboutStore')->name('store');
-            Route::put('{about}', 'aboutUpdate')->name('update');
-            Route::delete('{about}', 'aboutDestroy')->name('destroy');
-        });
-        /* Highlight */
-        Route::prefix('highlight')->name('highlight.')->group(function () {
-            Route::get('/', 'highlightIndex')->name('index');
-            Route::post('/', 'highlightStore')->name('store');
-            Route::put('{highlight}', 'highlightUpdate')->name('update');
-            Route::delete('{highlight}', 'highlightDestroy')->name('destroy');
-        });
+
+
        /* Content */
         Route::prefix('content')->name('content.')->middleware(['auth', 'role:super-admin'])->group(function () {
             Route::get('/', 'contentIndex')->name('index');
@@ -193,6 +182,7 @@ Route::prefix('utilities')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/{id}', 'show')->name('show');
         Route::post('/{id}/mark-read', 'markRead')->name('mark-read');
+        Route::post('/{id}/reply', 'reply')->name('reply');
         Route::delete('/{id}', 'destroy')->name('destroy');
     });
 });

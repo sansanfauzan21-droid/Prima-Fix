@@ -16,7 +16,7 @@ $data = [
 ];
 
 try {
-    Mail::to('aldiawaludin226@gmail.com')->send(new ContactFormMail($data));
+    Mail::to('farisyanazhiraa@gmail.com')->send(new ContactFormMail($data));
     echo 'Contact form email sent successfully!';
 } catch (Exception $e) {
     echo 'Error sending contact form email: ' . $e->getMessage();
